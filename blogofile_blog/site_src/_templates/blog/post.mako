@@ -1,4 +1,4 @@
-<%page args="post"/>
+<%page args="post, excerpted=False"/>
 
 <% 
    category_links = []
@@ -23,11 +23,15 @@
       </small></p>
     </header>
     <div class="post_prose">
-      ${self.post_prose(post)}
+      ${self.post_prose(post, excerpted)}
     </div>
   </div>
 </article>
 
-<%def name="post_prose(post)">
-${post.content}
+<%def name="post_prose(post, excerpted)">
+  % if excerpted:
+    ${post.excerpt}
+  % else:
+    ${post.content}
+  % endif
 </%def>
