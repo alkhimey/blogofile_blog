@@ -129,12 +129,12 @@ config = HC(
         # If a post does not specify a filter chain, use the
         # following defaults based on the post file extension:
         default_filters={
-           "markdown": "syntax_highlight, markdown",
-           "md": "syntax_highlight, markdown",
-           "textile": "syntax_highlight, textile",
-           "org": "syntax_highlight, org",
-           "rst": "syntax_highlight, rst",
-           "html": "syntax_highlight"
+           "markdown": "latex, syntax_highlight, markdown",
+           "md"      : "latex, syntax_highlight, markdown",
+           "textile" : "latex, syntax_highlight, textile",
+           "org"     : "latex, syntax_highlight, org",
+           "rst"     : "latex, syntax_highlight, rst",
+           "html"    : "latex, syntax_highlight"
            },
         #An optional callback to run after all the posts are parsed
         #but before anything else is done with them.

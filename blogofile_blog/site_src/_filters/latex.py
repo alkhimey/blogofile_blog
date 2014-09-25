@@ -101,8 +101,10 @@ def render_latex_blocks(src, cache_dir="_tmp", site_images_dir="images"):
         img_substitutions[m.group()] = "<img src=\"%s\">" % \
             (bf.util.site_path_helper(site_images_dir,fn))
     #Make the <img> tag replacements in a single pass
-    p = re.compile('|'.join(map(re.escape, img_substitutions)))
-    return p.sub(lambda x: img_substitutions[x.group(0)], src)
-    
+    if img_substitutions:
+        p = re.compile('|'.join(map(re.escape, img_substitutions)))
+        return p.sub(lambda x: img_substitutions[x.group(0)], src)
+    return src
+
 def run(src):
     return render_latex_blocks(src)
